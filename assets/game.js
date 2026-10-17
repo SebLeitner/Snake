@@ -44,8 +44,6 @@
   });
   const KEY_DIRECTIONS = {
     ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right",
-    w: "up", s: "down", a: "left", d: "right",
-    "2": "up", "8": "down", "4": "left", "6": "right",
   };
 
   const preferences = readPreferences();
@@ -64,7 +62,6 @@
   let won = false;
   let pauseReason = "";
   let audioContext = null;
-  let swipe = null;
   let resizeFrame = null;
   let colors = { background: "#a7b879", ink: "#27351e" };
 
@@ -449,51 +446,15 @@
   });
 
   document.addEventListener("keydown", event => {
+    if (state !== "running") return;
     if (event.altKey || event.ctrlKey || event.metaKey || event.isComposing) return;
     const target = event.target instanceof Element ? event.target : null;
     if (target?.closest("input, select, textarea, [contenteditable]:not([contenteditable='false'])")) return;
-    const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
-    if (KEY_DIRECTIONS[key]) {
-      if (state !== "running") return;
-      event.preventDefault();
-      queueDirection(KEY_DIRECTIONS[key]);
-      return;
-    }
-    if (key === "Escape") {
-      if (state === "running") {
-        event.preventDefault();
-        pauseGame();
-      }
-      return;
-    }
-    if (key !== " " && key !== "Enter") return;
-    // Leave native button activation alone, so Enter never starts and pauses twice.
-    if (target?.closest("button, a, [role='button']")) return;
+    const nextDirection = KEY_DIRECTIONS[event.key];
+    if (!nextDirection) return;
     event.preventDefault();
-    if (event.repeat) return;
-    if (state === "running") pauseGame();
-    else if (state === "paused") resumeGame();
-    else startGame();
+    queueDirection(nextDirection);
   });
-
-  canvas.style.touchAction = "none";
-  if (!canvas.hasAttribute("tabindex")) canvas.tabIndex = 0;
-  canvas.addEventListener("pointerdown", event => {
-    if (!event.isPrimary || state !== "running") return;
-    swipe = { id: event.pointerId, x: event.clientX, y: event.clientY };
-    canvas.setPointerCapture?.(event.pointerId);
-  });
-  canvas.addEventListener("pointerup", event => {
-    if (!swipe || swipe.id !== event.pointerId) return;
-    const deltaX = event.clientX - swipe.x;
-    const deltaY = event.clientY - swipe.y;
-    swipe = null;
-    if (Math.max(Math.abs(deltaX), Math.abs(deltaY)) < 16) return;
-    if (Math.abs(deltaX) > Math.abs(deltaY)) queueDirection(deltaX > 0 ? "right" : "left");
-    else queueDirection(deltaY > 0 ? "down" : "up");
-  });
-  canvas.addEventListener("pointercancel", () => { swipe = null; });
-  canvas.addEventListener("lostpointercapture", () => { swipe = null; });
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) pauseGame("hidden");

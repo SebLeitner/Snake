@@ -1,8 +1,12 @@
 # Rootpilot Snake
 
 Snake wie auf den alten Nokia-Handys: grünes LCD, Pixelgrafik, neun
-Geschwindigkeiten, Tastatur-/Touch-Steuerung, Retroton und lokaler Highscore.
+Geschwindigkeiten, Bildschirmtasten und PC-Pfeiltasten, Retroton und lokaler Highscore.
 Eine statische Website ohne Framework, Build oder Serveranwendung.
+
+Starten, Pausieren und erneut Spielen erfolgen über die Bildschirmtasten.
+Zum Lenken dienen die Richtungstasten auf dem Bildschirm, auch auf dem Handy,
+oder die Pfeiltasten am PC. Wischgesten und weitere Spiel-Tastenkürzel gibt es nicht.
 
 ## Direkt in AWS veröffentlichen
 

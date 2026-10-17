@@ -54,7 +54,7 @@
           </div>
 
           <div class="nostalgia-note"><span class="note-cross" aria-hidden="true">✳</span><p>Direkt im Browser.<br>Ohne Download und Anmeldung.</p></div>
-          <p class="desktop-hint"><kbd>↵</kbd> starten &nbsp; <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> lenken &nbsp; <kbd>Leertaste</kbd> Pause</p>
+          <p class="desktop-hint"><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> am PC lenken &nbsp; · &nbsp; Start und Pause über die Tasten</p>
         </div>
 
         <div class="phone-stage" id="spiel">
@@ -69,7 +69,7 @@
                   <div class="best-score"><span class="score-label">REKORD</span><output id="best-score" aria-label="Highscore">0000</output></div>
                 </div>
                 <div class="playfield">
-                  <canvas id="game-canvas" width="480" height="360" tabindex="0" role="img" aria-label="Snake-Spielfeld. Mit Pfeiltasten, WASD oder den Ziffern 2, 4, 6 und 8 lenken.">Dein Browser benötigt Canvas, um Snake darzustellen.</canvas>
+                  <canvas id="game-canvas" width="480" height="360" tabindex="0" role="img" aria-label="Snake-Spielfeld. Mit Pfeiltasten oder Bildschirmtasten lenken." aria-describedby="control-instructions">Dein Browser benötigt Canvas, um Snake darzustellen.</canvas>
                   <div class="game-overlay" id="game-overlay" data-state="ready">
                     <div class="overlay-snake" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
                     <h2 id="overlay-title">Bereit?</h2>
@@ -87,11 +87,11 @@
               <button id="pause-button" type="button" disabled><span data-button-label>Pause</span><span class="softkey-line" aria-hidden="true"></span></button>
             </div>
             <div class="direction-pad" aria-label="Richtungstasten">
-              <button class="direction-key key-up" type="button" data-direction="up" aria-label="Nach oben, Taste 2"><span class="key-number">2</span><span class="key-arrow" aria-hidden="true">▲</span></button>
-              <button class="direction-key key-left" type="button" data-direction="left" aria-label="Nach links, Taste 4"><span class="key-number">4</span><span class="key-arrow" aria-hidden="true">◀</span></button>
+              <button class="direction-key key-up" type="button" data-direction="up" aria-label="Nach oben"><span class="key-number">2</span><span class="key-arrow" aria-hidden="true">▲</span></button>
+              <button class="direction-key key-left" type="button" data-direction="left" aria-label="Nach links"><span class="key-number">4</span><span class="key-arrow" aria-hidden="true">◀</span></button>
               <div class="key-center" aria-hidden="true"><span>•</span></div>
-              <button class="direction-key key-right" type="button" data-direction="right" aria-label="Nach rechts, Taste 6"><span class="key-number">6</span><span class="key-arrow" aria-hidden="true">▶</span></button>
-              <button class="direction-key key-down" type="button" data-direction="down" aria-label="Nach unten, Taste 8"><span class="key-number">8</span><span class="key-arrow" aria-hidden="true">▼</span></button>
+              <button class="direction-key key-right" type="button" data-direction="right" aria-label="Nach rechts"><span class="key-number">6</span><span class="key-arrow" aria-hidden="true">▶</span></button>
+              <button class="direction-key key-down" type="button" data-direction="down" aria-label="Nach unten"><span class="key-number">8</span><span class="key-arrow" aria-hidden="true">▼</span></button>
             </div>
             <div class="phone-chin" aria-hidden="true"><span></span><span></span><span></span></div>
           </div>
@@ -102,7 +102,7 @@
       <section class="how-to" id="steuerung" aria-labelledby="controls-title">
         <div class="how-heading"><p class="eyebrow">KENNST DU NOCH?</p><h2 id="controls-title">Leicht zu spielen.<br>Schwer aufzuhören.</h2></div>
         <div class="instruction"><span class="instruction-number">01</span><h3>Fressen. Wachsen.</h3><p>Sammle die Punkte. Für jeden Happen gibt’s 10 Punkte und ein Stück Schlange mehr.</p></div>
-        <div class="instruction"><span class="instruction-number">02</span><h3>Immer in Bewegung.</h3><p>Lenke mit Pfeiltasten oder 2, 4, 6, 8. Am Handy: wischen oder die Tasten drücken.</p></div>
+        <div class="instruction"><span class="instruction-number">02</span><h3>Immer in Bewegung.</h3><p id="control-instructions">Lenke mit den Bildschirmtasten oder am PC mit den Pfeiltasten. Start und Pause bedienst du über die Tasten am Spiel.</p></div>
         <div class="instruction"><span class="instruction-number">03</span><h3>Bloß nicht anecken.</h3><p>Die Wand und dein eigener Schwanz sind tabu. Dein Rekord bleibt auf diesem Gerät.</p></div>
       </section>
 

@@ -89,7 +89,7 @@ kbd { font: inherit; background: #efefe6; border: 1px solid #dcded1; border-bott
 .scoreboard output { font-size: 23px; font-weight: 700; letter-spacing: 1px; line-height: 1.1; }
 .best-score { text-align: right; }
 .playfield { position: relative; border: 2px solid var(--lcd-ink); overflow: hidden; background: #a4b570; }
-#game-canvas { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; image-rendering: pixelated; touch-action: none; }
+#game-canvas { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; image-rendering: pixelated; }
 #game-canvas:focus-visible { outline-offset: -4px; outline-color: var(--lcd-ink); }
 .game-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #a9b976ed; text-align: center; padding: 10px; z-index: 1; }
 .game-overlay h2 { font: 700 clamp(20px, 4vw, 29px)/1.1 var(--mono); letter-spacing: -1.5px; margin: 10px 0 6px; text-transform: uppercase; }
