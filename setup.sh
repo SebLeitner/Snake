@@ -79,7 +79,7 @@ HOSTING_STACK="$STACK_PREFIX-hosting"
 command -v aws >/dev/null || die "AWS CLI fehlt. Bitte das Projekt in AWS CloudShell öffnen und dort bash setup.sh ausführen."
 command -v python3 >/dev/null || die "Python 3 fehlt. In AWS CloudShell ist es bereits vorhanden."
 
-WEB_FILES=(assets/game.js assets/favicon.svg styles.css index.html)
+WEB_FILES=(assets/game.js assets/favicon.svg assets/manrope-latin.woff2 assets/manrope-OFL.txt styles.css index.html)
 for source_file in "${WEB_FILES[@]}" infra/certificate.yaml infra/hosting.yaml; do
   [[ -f "$SOURCE_DIR/$source_file" && ! -L "$SOURCE_DIR/$source_file" ]] \
     || die "Projektdatei fehlt oder ist ein Symlink: $source_file"
@@ -229,6 +229,8 @@ for web_file in "${WEB_FILES[@]}"; do
     *.css) content_type="text/css; charset=utf-8" ;;
     *.js) content_type="application/javascript; charset=utf-8" ;;
     *.svg) content_type="image/svg+xml" ;;
+    *.woff2) content_type="font/woff2" ;;
+    *.txt) content_type="text/plain; charset=utf-8" ;;
   esac
   aws_cmd s3 cp "$SOURCE_DIR/$web_file" "s3://$BUCKET/$web_file" \
     --region "$REGION" --content-type "$content_type" \

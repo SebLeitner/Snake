@@ -3,8 +3,9 @@
 Snake wie auf den alten Nokia-Handys: grünes LCD, Pixelgrafik, neun
 Geschwindigkeiten, Bildschirmtasten und PC-Pfeiltasten, Retroton und lokaler Highscore.
 Eine statische Website ohne Framework, Build oder Serveranwendung.
-Die Oberfläche um das Nokia-inspirierte LCD ist neutral und zurückhaltend
-gestaltet. Auf dem Handy steht das Spiel vor den Einstellungen.
+Die Oberfläche übernimmt die dunklen Flächen, türkisen Akzente und die
+Originalschrift des Rootpilot-Auftritts. Auf dem Handy steht das Spiel vor den
+Einstellungen; das Nokia-inspirierte LCD bleibt grün.
 
 Starten, Pausieren und erneut Spielen erfolgen über die Bildschirmtasten.
 Zum Lenken dienen die Richtungstasten auf dem Bildschirm, auch auf dem Handy,
@@ -89,11 +90,13 @@ lässt er sich explizit setzen. Für Updates dieselbe Domain, Region und denselb
 Präfix verwenden und **`bash setup.sh` erneut ausführen**. Bestehende Stacks
 werden aktualisiert; ein unveränderter Stack gilt als erfolgreicher Aufruf.
 
-Es werden ausschließlich diese vier Dateien veröffentlicht:
+Es werden ausschließlich diese sechs Dateien veröffentlicht:
 
 ```text
 assets/game.js
 assets/favicon.svg
+assets/manrope-latin.woff2
+assets/manrope-OFL.txt
 styles.css
 index.html
 ```
@@ -112,18 +115,23 @@ bevor derselbe Aufruf erneut gestartet wird.
 
 ## Dateien und Branding
 
-- `index.html` und `styles.css`: zurückhaltende Oberfläche mit Nokia-inspiriertem LCD.
+- `index.html` und `styles.css`: Rootpilot-Gestaltung mit Nokia-inspiriertem LCD.
 - `assets/game.js`: Spiellogik ohne externe Bibliotheken.
+- `assets/manrope-latin.woff2` und `assets/manrope-OFL.txt`: lokal eingebundene
+  Originalschrift mit SIL-Open-Font-Lizenz.
 - `infra/certificate.yaml`: ACM-Zertifikat und DNS-Validierung.
 - `infra/hosting.yaml`: S3, CloudFront, Sicherheitsheader und Domain.
 - `setup.sh`: gesamtes AWS-Deployment aus der CloudShell.
 
-Der Kopfbereich greift die übermittelte Logo-Vorlage typografisch auf: dunkler
-Schriftzug `rootpilot`, türkiser Unterstrich und der Claim „Beyond technology.“.
-Die originale Bild-/Vektordatei liegt noch nicht vor; die Darstellung ist deshalb
-als Text und CSS umgesetzt. Ein dezenter Hinweis verweist auf die Rootpilot-Website.
-Externe Werbenetzwerke und Tracking sind nicht eingebunden. Highscore und
-Spieleinstellungen werden im Browser gespeichert.
+Die Wortmarke wird wie auf `rootpilot.de` als Text in **Manrope Variable**
+(Gewicht 800, Zeichenabstand −1,8 px) mit türkisem Unterstrich dargestellt.
+Der Claim „Beyond technology.“ entspricht der bereitgestellten Logo-Vorlage.
+Schriftdatei, Farbwerte und Typografie stammen vom offiziellen Webauftritt;
+die Schrift wird lokal ausgeliefert. Die verwendeten Markenfarben sind
+`#0b1119`, `#101923`, `#26323f`, `#edf2f6`, `#a2afbc` und `#68e3ce`.
+Ein dezenter Hinweis auf Cybersecurity, KI und IT-Beratung verlinkt die
+Leistungsübersicht. Externe Werbenetzwerke und Tracking sind nicht eingebunden.
+Highscore und Spieleinstellungen werden im Browser gespeichert.
 
 Auf Wunsch wurden bei der Erstellung keine lokalen Tests, Syntaxprüfungen oder
 Serverstarts ausgeführt. AWS-Ressourcen wurden aus dieser Arbeitsumgebung noch
