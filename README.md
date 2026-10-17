@@ -116,9 +116,9 @@ bevor derselbe Aufruf erneut gestartet wird.
 Das Logo in `assets/rootpilot-logo.svg` ist aktuell eine selbst erstellte
 Rootpilot-Wort-/Bildmarke. Der Abruf des offiziellen Logos von rootpilot.de war
 in dieser Arbeitsumgebung gesperrt. Die Datei lässt sich durch das Original
-ersetzen. Die kleine Eigenwerbung verweist auf Rootpilot; externe Werbenetzwerke
-und Tracking sind nicht eingebunden. Highscore und Spieleinstellungen werden
-im Browser gespeichert.
+ersetzen. Eine zurückhaltende Markenleiste verweist auf die Rootpilot-Website;
+externe Werbenetzwerke und Tracking sind nicht eingebunden. Highscore und
+Spieleinstellungen werden im Browser gespeichert.
 
 Auf Wunsch wurden bei der Erstellung keine lokalen Tests, Syntaxprüfungen oder
 Serverstarts ausgeführt. AWS-Ressourcen wurden aus dieser Arbeitsumgebung noch
