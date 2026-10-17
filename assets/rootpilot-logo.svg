@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="36" viewBox="0 0 180 36" role="img" aria-labelledby="title">
+  <title id="title">Rootpilot</title>
+  <path fill="#263d30" d="M0 7h10V2h10v5h10v22H20v5H10v-5H0z"/>
+  <path fill="#c7ee6d" d="M8 12h6v6h6v-6h5v12h-5v-1h-6v-5H8z"/>
+  <text x="41" y="26" fill="#202a25" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="750" letter-spacing="-1">rootpilot</text>
+</svg>

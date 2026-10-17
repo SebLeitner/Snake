@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Rootpilot Snake - ACM certificate for CloudFront. Deploy this stack in us-east-1.
+
+Parameters:
+  DomainName:
+    Type: String
+    Description: Fully qualified domain name, for example snake.rootpilot.de.
+    AllowedPattern: '^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$'
+    MaxLength: 253
+  HostedZoneId:
+    Type: AWS::Route53::HostedZone::Id
+    Description: Existing public Route53 hosted zone containing DomainName.
+
+Resources:
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Ref DomainName
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !Ref DomainName
+          HostedZoneId: !Ref HostedZoneId
+      KeyAlgorithm: RSA_2048
+      CertificateTransparencyLoggingPreference: ENABLED
+      Tags:
+        - Key: Application
+          Value: rootpilot-snake
+
+Outputs:
+  CertificateArn:
+    Description: Pass this us-east-1 certificate ARN to the hosting stack.
+    Value: !Ref Certificate
