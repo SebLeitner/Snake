@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#202a25">
-    <meta name="description" content="Snake wie früher: grünes LCD, echte Knöpfe und die Jagd nach dem Highscore. Kostenlos bei Rootpilot spielen — auch auf dem Handy.">
-    <title>Snake · Zurück zum Highscore | Rootpilot</title>
+    <meta name="theme-color" content="#f5f6f7">
+    <meta name="description" content="Snake im klassischen Nokia-Stil. Mit Bildschirmtasten oder PC-Pfeiltasten spielen und den eigenen Highscore verbessern. Ein Projekt von Rootpilot.">
+    <title>Snake | Rootpilot</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <script src="assets/game.js" defer></script>
@@ -13,52 +13,28 @@
   <body>
     <a class="skip-link" href="#spiel">Direkt zum Spiel</a>
     <header class="site-header">
-      <a class="brand" href="https://www.rootpilot.de" aria-label="Rootpilot Startseite">
-        <img src="assets/rootpilot-logo.svg" width="180" height="36" alt="Rootpilot">
-      </a>
-      <span class="header-note"><span class="status-dot" aria-hidden="true"></span> Ein Klassiker. Wieder da.</span>
-      <a class="header-link" href="#steuerung">So geht’s <span aria-hidden="true">↘</span></a>
+      <div class="brand">
+        <a class="brand-name" href="https://www.rootpilot.de" aria-label="Rootpilot Startseite"><span class="brand-wordmark">rootpilot<span class="brand-cursor" aria-hidden="true">_</span></span><span class="brand-tagline">Beyond technology.</span></a>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-section">Snake</span>
+      </div>
+      <nav class="header-nav" aria-label="Seitennavigation">
+        <a class="header-link" href="#steuerung">Spielanleitung</a>
+        <a class="external-link" href="https://www.rootpilot.de" target="_blank" rel="noopener noreferrer">rootpilot.de <span aria-hidden="true">↗</span></a>
+      </nav>
     </header>
 
     <main>
       <section class="game-section" aria-labelledby="page-title">
         <div class="intro">
-          <p class="eyebrow"><span aria-hidden="true">▦</span> ROOTPILOT ARCADE / 001</p>
-          <h1 id="page-title">Wenig Pixel.<br>Große <span class="title-last">Gefühle<span class="pixel-dot">.</span></span></h1>
-          <p class="intro-copy">Noch eine Runde. Noch ein Punkt.<br>Dein Lieblingsspiel von früher ist zurück.<br>Und die Schlange hat immer noch Hunger.</p>
+          <p class="eyebrow">ROOTPILOT / CLASSIC GAME</p>
+          <h1 id="page-title">Snake.</h1>
+          <p class="intro-copy">Der Klassiker im Stil früher Nokia-Handys. Sammle Punkte und halte die Schlange in Bewegung.</p>
+          <div class="game-facts" aria-label="Spieleigenschaften"><span>9 Spielstufen</span><span>Lokaler Highscore</span><span>Ohne Anmeldung</span></div>
           <a class="jump-to-game" href="#spiel">Zum Spiel <span aria-hidden="true">↓</span></a>
-
-          <div class="game-settings" aria-label="Spieleinstellungen">
-            <div class="settings-heading"><span>DEIN SPIEL</span><span class="tiny-snake" aria-hidden="true">▪▪▪▫</span></div>
-            <div class="settings-row">
-              <label class="level-setting" for="level-select">
-                <span>Geschwindigkeit</span>
-                <select id="level-select" aria-describedby="level-hint">
-                  <option value="1">01 · Ganz entspannt</option>
-                  <option value="2">02 · Locker bleiben</option>
-                  <option value="3" selected>03 · Wie damals</option>
-                  <option value="4">04 · Ein bisschen flotter</option>
-                  <option value="5">05 · Gut im Flow</option>
-                  <option value="6">06 · Finger bereit</option>
-                  <option value="7">07 · Ziemlich schnell</option>
-                  <option value="8">08 · Volle Konzentration</option>
-                  <option value="9">09 · Schlangenprofi</option>
-                </select>
-              </label>
-              <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Spielton einschalten">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 6 6m0-6-6 6" class="sound-off-icon"/><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" class="sound-on-icon"/></svg>
-                <span data-button-label>Ton aus</span>
-              </button>
-            </div>
-            <p class="setting-hint" id="level-hint">Eine neue Stufe gilt ab der nächsten Runde.</p>
-          </div>
-
-          <div class="nostalgia-note"><span class="note-cross" aria-hidden="true">✳</span><p>Direkt im Browser.<br>Ohne Download und Anmeldung.</p></div>
-          <p class="desktop-hint"><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> am PC lenken &nbsp; · &nbsp; Start und Pause über die Tasten</p>
         </div>
 
         <div class="phone-stage" id="spiel">
-          <span class="stage-label stage-label-top" aria-hidden="true">BACK TO BASICS.</span>
           <div class="phone" role="group" aria-label="Klassisches Snake-Spiel">
             <div class="phone-top" aria-hidden="true"><span class="speaker"></span><span class="phone-wordmark">SNAKE</span><span class="model-label">CLASSIC EDITION</span></div>
             <div class="lcd-frame">
@@ -73,16 +49,15 @@
                   <div class="game-overlay" id="game-overlay" data-state="ready">
                     <div class="overlay-snake" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
                     <h2 id="overlay-title">Bereit?</h2>
-                    <p id="overlay-copy">Die nächste Runde wartet.</p>
+                    <p id="overlay-copy">Sammle Punkte und verbessere deinen Rekord.</p>
                     <button id="overlay-action" type="button"><span data-button-label>Spiel starten</span> <span aria-hidden="true">▶</span></button>
                   </div>
                 </div>
                 <div class="lcd-bottomline"><span>LEVEL <span id="level-value">03</span></span><span id="game-status" role="status" aria-live="polite">BEREIT</span></div>
               </div>
             </div>
-
             <div class="phone-actions">
-              <button id="start-button" type="button"><span data-button-label>Spielen</span><span class="softkey-line" aria-hidden="true"></span></button>
+              <button id="start-button" type="button"><span data-button-label>Spiel starten</span><span class="softkey-line" aria-hidden="true"></span></button>
               <span class="phone-emblem" aria-hidden="true">●</span>
               <button id="pause-button" type="button" disabled><span data-button-label>Pause</span><span class="softkey-line" aria-hidden="true"></span></button>
             </div>
@@ -95,25 +70,51 @@
             </div>
             <div class="phone-chin" aria-hidden="true"><span></span><span></span><span></span></div>
           </div>
-          <div class="stage-footnote"><span class="status-dot" aria-hidden="true"></span> ORIGINALGEFÜHL. DIREKT IM BROWSER.</div>
+          <p class="stage-footnote">Bildschirmtasten oder PC-Pfeiltasten</p>
+        </div>
+
+        <div class="game-settings" aria-label="Spieleinstellungen">
+          <div class="settings-heading"><span>Einstellungen</span></div>
+          <div class="settings-row">
+            <label class="level-setting" for="level-select">
+              <span>Geschwindigkeit</span>
+              <select id="level-select" aria-describedby="level-hint">
+                <option value="1">Stufe 1</option>
+                <option value="2">Stufe 2</option>
+                <option value="3" selected>Stufe 3 · Standard</option>
+                <option value="4">Stufe 4</option>
+                <option value="5">Stufe 5</option>
+                <option value="6">Stufe 6</option>
+                <option value="7">Stufe 7</option>
+                <option value="8">Stufe 8</option>
+                <option value="9">Stufe 9</option>
+              </select>
+            </label>
+            <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Spielton einschalten">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 6 6m0-6-6 6" class="sound-off-icon"/><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" class="sound-on-icon"/></svg>
+              <span data-button-label>Ton aus</span>
+            </button>
+          </div>
+          <p class="setting-hint" id="level-hint">Die Geschwindigkeit lässt sich vor jeder Runde ändern.</p>
+          <p class="desktop-hint"><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> Am PC mit den Pfeiltasten lenken.</p>
         </div>
       </section>
 
       <section class="how-to" id="steuerung" aria-labelledby="controls-title">
-        <div class="how-heading"><p class="eyebrow">KENNST DU NOCH?</p><h2 id="controls-title">Leicht zu spielen.<br>Schwer aufzuhören.</h2></div>
-        <div class="instruction"><span class="instruction-number">01</span><h3>Fressen. Wachsen.</h3><p>Sammle die Punkte. Für jeden Happen gibt’s 10 Punkte und ein Stück Schlange mehr.</p></div>
-        <div class="instruction"><span class="instruction-number">02</span><h3>Immer in Bewegung.</h3><p id="control-instructions">Lenke mit den Bildschirmtasten oder am PC mit den Pfeiltasten. Start und Pause bedienst du über die Tasten am Spiel.</p></div>
-        <div class="instruction"><span class="instruction-number">03</span><h3>Bloß nicht anecken.</h3><p>Die Wand und dein eigener Schwanz sind tabu. Dein Rekord bleibt auf diesem Gerät.</p></div>
+        <div class="how-heading"><p class="eyebrow">SPIELANLEITUNG</p><h2 id="controls-title">So funktioniert’s.</h2></div>
+        <div class="instruction"><span class="instruction-number">01</span><h3>Punkte sammeln</h3><p>Jeder Happen bringt 10 Punkte und verlängert die Schlange um ein Feld.</p></div>
+        <div class="instruction"><span class="instruction-number">02</span><h3>Richtung steuern</h3><p id="control-instructions">Lenke mit den Bildschirmtasten oder am PC mit den Pfeiltasten. Start und Pause bedienst du über die Tasten am Spiel.</p></div>
+        <div class="instruction"><span class="instruction-number">03</span><h3>Kollisionen vermeiden</h3><p>Berühre weder den Rand noch die Schlange. Dein Highscore wird in diesem Browser gespeichert.</p></div>
       </section>
 
       <aside class="rootpilot-promo" aria-label="Rootpilot">
-        <span class="rootpilot-signature">Ein Spiel von Rootpilot.</span>
-        <a href="https://www.rootpilot.de" target="_blank" rel="noopener noreferrer">www.rootpilot.de <span aria-hidden="true">↗</span></a>
+        <span class="rootpilot-signature">Ein Projekt von Rootpilot.</span>
+        <a href="https://www.rootpilot.de" target="_blank" rel="noopener noreferrer">Mehr über Rootpilot <span aria-hidden="true">↗</span></a>
       </aside>
     </main>
 
     <footer class="site-footer">
-      <p>Snake von <a href="https://www.rootpilot.de">Rootpilot</a>.</p>
+      <p>Rootpilot / Snake</p>
       <div class="footer-actions"><span>Highscore nur lokal · Ohne Tracking</span><button id="reset-best" type="button">Rekord löschen</button></div>
     </footer>
     <noscript><div class="noscript-message">Für Snake bitte JavaScript im Browser aktivieren.</div></noscript>

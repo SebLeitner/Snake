@@ -79,7 +79,7 @@ HOSTING_STACK="$STACK_PREFIX-hosting"
 command -v aws >/dev/null || die "AWS CLI fehlt. Bitte das Projekt in AWS CloudShell öffnen und dort bash setup.sh ausführen."
 command -v python3 >/dev/null || die "Python 3 fehlt. In AWS CloudShell ist es bereits vorhanden."
 
-WEB_FILES=(assets/game.js assets/rootpilot-logo.svg assets/favicon.svg styles.css index.html)
+WEB_FILES=(assets/game.js assets/favicon.svg styles.css index.html)
 for source_file in "${WEB_FILES[@]}" infra/certificate.yaml infra/hosting.yaml; do
   [[ -f "$SOURCE_DIR/$source_file" && ! -L "$SOURCE_DIR/$source_file" ]] \
     || die "Projektdatei fehlt oder ist ein Symlink: $source_file"

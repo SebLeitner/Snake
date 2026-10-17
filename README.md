@@ -3,6 +3,8 @@
 Snake wie auf den alten Nokia-Handys: grünes LCD, Pixelgrafik, neun
 Geschwindigkeiten, Bildschirmtasten und PC-Pfeiltasten, Retroton und lokaler Highscore.
 Eine statische Website ohne Framework, Build oder Serveranwendung.
+Die Oberfläche um das Nokia-inspirierte LCD ist neutral und zurückhaltend
+gestaltet. Auf dem Handy steht das Spiel vor den Einstellungen.
 
 Starten, Pausieren und erneut Spielen erfolgen über die Bildschirmtasten.
 Zum Lenken dienen die Richtungstasten auf dem Bildschirm, auch auf dem Handy,
@@ -87,14 +89,13 @@ lässt er sich explizit setzen. Für Updates dieselbe Domain, Region und denselb
 Präfix verwenden und **`bash setup.sh` erneut ausführen**. Bestehende Stacks
 werden aktualisiert; ein unveränderter Stack gilt als erfolgreicher Aufruf.
 
-Es werden ausschließlich diese fünf Dateien veröffentlicht:
+Es werden ausschließlich diese vier Dateien veröffentlicht:
 
 ```text
-index.html
-styles.css
 assets/game.js
-assets/rootpilot-logo.svg
 assets/favicon.svg
+styles.css
+index.html
 ```
 
 HTML wird zuletzt übertragen. Alle unversionierten Dateien werden vor erneuter
@@ -111,17 +112,17 @@ bevor derselbe Aufruf erneut gestartet wird.
 
 ## Dateien und Branding
 
-- `index.html` und `styles.css`: Oberfläche mit Nokia-inspiriertem Telefon.
+- `index.html` und `styles.css`: zurückhaltende Oberfläche mit Nokia-inspiriertem LCD.
 - `assets/game.js`: Spiellogik ohne externe Bibliotheken.
 - `infra/certificate.yaml`: ACM-Zertifikat und DNS-Validierung.
 - `infra/hosting.yaml`: S3, CloudFront, Sicherheitsheader und Domain.
 - `setup.sh`: gesamtes AWS-Deployment aus der CloudShell.
 
-Das Logo in `assets/rootpilot-logo.svg` ist aktuell eine selbst erstellte
-Rootpilot-Wort-/Bildmarke. Der Abruf des offiziellen Logos von rootpilot.de war
-in dieser Arbeitsumgebung gesperrt. Die Datei lässt sich durch das Original
-ersetzen. Eine zurückhaltende Markenleiste verweist auf die Rootpilot-Website;
-externe Werbenetzwerke und Tracking sind nicht eingebunden. Highscore und
+Der Kopfbereich greift die übermittelte Logo-Vorlage typografisch auf: dunkler
+Schriftzug `rootpilot`, türkiser Unterstrich und der Claim „Beyond technology.“.
+Die originale Bild-/Vektordatei liegt noch nicht vor; die Darstellung ist deshalb
+als Text und CSS umgesetzt. Ein dezenter Hinweis verweist auf die Rootpilot-Website.
+Externe Werbenetzwerke und Tracking sind nicht eingebunden. Highscore und
 Spieleinstellungen werden im Browser gespeichert.
 
 Auf Wunsch wurden bei der Erstellung keine lokalen Tests, Syntaxprüfungen oder

@@ -127,7 +127,7 @@
       setButtonText(ui.pause, state === "paused" ? "Weiter" : "Pause");
       ui.pause.setAttribute("aria-label", state === "paused" ? "Spiel fortsetzen" : "Spiel pausieren");
     }
-    setButtonText(ui.start, active ? "Neu starten" : state === "over" ? "Nochmal spielen" : "Spiel starten");
+    setButtonText(ui.start, active ? "Neu starten" : state === "over" ? "Erneut spielen" : "Spiel starten");
     if (ui.sound) {
       ui.sound.setAttribute("aria-pressed", String(soundEnabled));
       ui.sound.setAttribute("aria-label", soundEnabled ? "Spielton ausschalten" : "Spielton einschalten");
@@ -142,16 +142,16 @@
 
     if (state === "ready") {
       setText(ui.overlayTitle, "Bereit?");
-      setText(ui.overlayCopy, "Futter sammeln. Länger werden. Bloß nicht anecken.");
-      setButtonText(ui.overlayAction, "Los geht’s");
+      setText(ui.overlayCopy, "Sammle Punkte und vermeide Kollisionen.");
+      setButtonText(ui.overlayAction, "Spiel starten");
     } else if (state === "paused") {
-      setText(ui.overlayTitle, "Kurze Pause.");
-      setText(ui.overlayCopy, pauseReason === "hidden" ? "Dein Spiel wartet hier auf dich." : "Einmal durchatmen. Dann geht’s weiter.");
+      setText(ui.overlayTitle, "Pause");
+      setText(ui.overlayCopy, pauseReason === "hidden" ? "Die Runde wurde automatisch pausiert." : "Setze die Runde fort, sobald du bereit bist.");
       setButtonText(ui.overlayAction, "Weiterspielen");
     } else if (state === "over") {
       setText(ui.overlayTitle, won ? "Geschafft!" : "Game over.");
-      setText(ui.overlayCopy, won ? `${score} Punkte. Das ganze Display gehört dir.` : `${score} Punkte. Noch eine Runde?`);
-      setButtonText(ui.overlayAction, "Nochmal spielen");
+      setText(ui.overlayCopy, won ? `${score} Punkte. Du hast das Spielfeld vollständig gefüllt.` : `${score} Punkte. Starte eine neue Runde.`);
+      setButtonText(ui.overlayAction, "Erneut spielen");
     }
   }
 
